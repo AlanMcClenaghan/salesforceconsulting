@@ -1,0 +1,25 @@
+<template>
+
+    <h1>{name}</h1>
+
+    <button 
+        onclick={changeName}>
+        Change Name
+    </button>
+
+    <div>{addNumber}</div>
+
+    <template 
+        for:each={technologies} 
+        for:item="tech">
+        <div key={tech}>{tech}</div>
+    </template>
+
+    <img src="./resources/lwc.png" height="200px"/>
+
+    <my-greeting 
+        msg={greetingmsg} 
+        onnamechange={nameChange}>
+    </my-greeting>
+
+</template>
