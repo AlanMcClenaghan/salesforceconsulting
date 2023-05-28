@@ -5,6 +5,7 @@ export default class Navbar extends LightningElement {
 
     navList = NAV_DATA
     isMobileToggle = false
+    isDomLoaded = false
 
     get openMobileNav() {
         return `collapse navbar-collapse ${this.isMobileToggle && 'show'}`
@@ -29,4 +30,15 @@ export default class Navbar extends LightningElement {
         element.scrollIntoView()
     }
 
+    renderedCallback() {
+        if (this.isDomLoaded) {
+            return
+        } else {
+            const element = this.template.querySelector('.nav-link')
+            if (element) {
+                element.classList.add('active')
+                this.isDomLoaded = true
+            }
+        }
+    }
 }

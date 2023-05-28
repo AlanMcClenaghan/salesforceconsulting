@@ -7,4 +7,10 @@ export default class Banner extends LightningElement {
     description = BANNER_DATA.description
     bannerBtnText = BANNER_DATA.bannerBtnText
 
+    moveToContactUs(event) {
+        event.preventDefault()
+        const element = document.querySelector('my-contactus')
+        element.scrollIntoView()
+    }
+
 }
