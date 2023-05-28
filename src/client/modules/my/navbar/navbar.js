@@ -11,11 +11,22 @@ export default class Navbar extends LightningElement {
     }
 
     get navMobileDesign() {
-        return `navbar navbar-expand-lg navbar-dark ${this.isMobileToggle ? 'bg-dark' : 'purple-gradient'}  `
+        return `fixed-top navbar navbar-expand-lg navbar-dark ${this.isMobileToggle ? 'bg-dark' : 'purple-gradient'}  `
     }
     
     toggleMobileMenu() {
         this.isMobileToggle = !this.isMobileToggle
+    }
+
+    navSelection(event) {
+        event.preventDefault()
+        if (this.isMobileToggle) {
+            this. toggleMobileMenu()
+        }
+        const name = event.target.name.toLowerCase().replace(/\s/g, '')
+        let tagname = name === 'home' ? 'my-navbar' : `my-${name}`
+        const element = document.querySelector(tagname)
+        element.scrollIntoView()
     }
 
 }
